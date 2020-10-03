@@ -2,7 +2,7 @@ name: 'Autograding Pull Pequest'
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
