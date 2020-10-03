@@ -29,6 +29,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PetClinicApplication {
 
 	public static void main(String[] args) {
+		int x = 3;
 		SpringApplication.run(PetClinicApplication.class, args);
 	}
 
