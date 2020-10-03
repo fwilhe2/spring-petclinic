@@ -1,0 +1,18 @@
+name: 'Autograding Pull Pequest'
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: mvn --show-version --no-transfer-progress clean verify -Dmaven.test.failure.ignore=true --file pom.xml
+      - name: Autograding
+        uses: uhafner/autograding-github-action@master
+        with:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEAD_SHA: ${{github.event.pull_request.head.sha}}
